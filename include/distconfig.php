@@ -206,6 +206,15 @@ $config->addTemplatePath($locwebsvnreal.'/templates/Elegant/');
 
 // $config->setIgnoreWhitespacesInDiff(true);
 
+// By default, WebSVN displays the text '(root)' as the root in the breadcrumbs.
+// You can customize this text providing a function, `rootNameProvider`. 
+// This function takes as input the current repository and the user language, 
+// and should return the text to be used as root in the breadcrumbs.
+// One use-case could be to use the name of the current repository as root, instead of '(root)'.
+// Uncomment this line if you want that.
+
+// $config->rootNameProvider = fn($rep, $lang) => $rep->getDisplayName();
+
 // }}}
 
 // {{{ LANGUAGE SETUP ---

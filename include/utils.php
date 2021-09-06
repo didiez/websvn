@@ -27,7 +27,7 @@
 // Create a list of links to the current path that'll be available from the template
 
 function createPathLinks($rep, $path, $rev, $peg = '') {
-	global $vars, $config;
+	global $vars, $config, $lang;
 
 	$pathComponents = explode('/', escape($path));
 	$count = count($pathComponents);
@@ -46,7 +46,7 @@ function createPathLinks($rep, $path, $rev, $peg = '') {
 
 	$pathSoFar = '/';
 	$pathSoFarURL = $config->getURL($rep, $pathSoFar, 'dir').$passRevString;
-	$vars['pathlinks'] = '<a href="'.$pathSoFarURL.'" class="root"><span>(root)</span></a>/';
+	$vars['pathlinks'] = '<a href="'.$pathSoFarURL.'" class="root"><span>'.$config->getRootDisplayName($rep, $lang).'</span></a>/';
 
 	for ($n = 1; $n < $limit; $n++) {
 		$pathSoFar .= html_entity_decode($pathComponents[$n]).'/';

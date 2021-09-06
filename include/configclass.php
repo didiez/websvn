@@ -700,6 +700,8 @@ class WebSvnConfig {
 
 	var $_excluded = array();
 
+	var $rootNameProvider;
+
 	// }}}
 
 	// {{{ __construct()
@@ -1631,6 +1633,10 @@ class WebSvnConfig {
 
 	function setIgnoreWhitespacesInDiff($ignore) {
 		$this->_ignoreWhitespacesInDiff = $ignore;
+	}
+
+	function getRootDisplayName($rep, $lang) {
+		return $this->rootNameProvider ? ($this->rootNameProvider)($rep, $lang) : '(root)' ;
 	}
 
 	// Methods for storing version information for the command-line svn tool
